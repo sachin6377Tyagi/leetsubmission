@@ -14,7 +14,7 @@ public:
     int ans=emp[mp[node]]->importance;
     vis[mp[node]]=1;
     for(auto nbr:emp[mp[node]]->subordinates){
-       // if(vis[nbr]) continue;
+       if(vis[mp[nbr]]) continue;
         int num=dfs(nbr,vis,emp,mp);
         // num+=emp[nbr]->importance;
         ans+=num;
