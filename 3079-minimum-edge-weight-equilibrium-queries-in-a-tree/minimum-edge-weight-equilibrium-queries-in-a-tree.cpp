@@ -54,7 +54,7 @@ public:
                 sum+=f[i];
                 maxi=max(maxi,f[i]);
             }
-            cout<<sum<<" "<<maxi<<endl;
+           // cout<<sum<<" "<<maxi<<endl;
             ans.push_back(sum-maxi);
         }
         return ans;
