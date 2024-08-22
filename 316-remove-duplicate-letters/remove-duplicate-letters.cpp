@@ -2,11 +2,9 @@ class Solution {
 public:
     string removeDuplicateLetters(string s) {
         int n=s.size();
-        map<char,int>ind;
         map<char,int>mp;
         map<char,bool>vis;
         for(int i=0;i<n;++i){
-            ind[s[i]]=i;
             mp[s[i]]++;
         }
         stack<pair<char,int>>st;
