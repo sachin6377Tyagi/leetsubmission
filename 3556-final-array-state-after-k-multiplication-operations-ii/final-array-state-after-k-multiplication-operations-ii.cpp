@@ -43,12 +43,9 @@ public:
             vec[i]={num,it.second};
             i++;
         }
-        for(int i=0;i<n;++i)pq.push(vec[i]);
        vector<int>ans(n);
-       while(pq.size()){
-        auto p=pq.top();
-        pq.pop();
-        ans[p.second]=p.first;
+       for(int i=0;i<n;++i){
+        ans[vec[i].second]=vec[i].first;
        }
        return ans;
     }
