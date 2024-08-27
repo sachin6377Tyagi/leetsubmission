@@ -5,12 +5,11 @@ public:
         if(mul==1)return nums;
          priority_queue<pair<long long,long long>,vector<pair<long long,long long>>,greater<pair<long long,long long>>>pq;
        int n=nums.size();
-       long long maxi=0,ind=-1;
+       long long maxi=0;
        for(int i=0;i<n;++i){
         pq.push({nums[i],i});
         if(nums[i]>maxi){
             maxi=nums[i];
-            ind=i;
         }
        }
        while(k>0){
@@ -24,17 +23,6 @@ public:
         k--;
        }
 
-       if(k>0){
-        // while(k>0 && pq.top().first==maxi){
-        //     auto p=pq.top();
-        //     long long num=p.first;
-        //     long long i=p.second;
-        //     num=(num*mul)%N;
-        //     pq.pop();
-        //     pq.push({num,i});
-        //     k--;
-        // }
-       cout<<k<<endl;
         long long q=k/n;
        // cout<<q<<endl;
         vector<pair<long long,long long>>vec(n);
@@ -45,11 +33,7 @@ public:
             if(b&1)pow=(pow*a)%N;
             a=(a*a)%N;
             b=b/2;
-            //cout<<pow<<endl;
         }
-        // pow=mul
-        // for(int i=0;i<cnt+2;++i)pow=(pow*mul)%N;
-       cout<<pow<<endl;
        int i=0;
         while(pq.size()){
             auto it=pq.top();
@@ -60,19 +44,6 @@ public:
             i++;
         }
         for(int i=0;i<n;++i)pq.push(vec[i]);
-        }
-        k=k%n;
-        // cout<<(pq.top().first*pow)%N<<endl;
-        cout<<k<<endl;
-        // while(k>0){
-        //     auto p=pq.top();
-        //     pq.pop();
-        //     long long num=p.first;
-        //      long long i=p.second;
-        //     num=(num*mul)%N;
-        //     pq.push({num,i});
-        //     k--;
-        // }
        vector<int>ans(n);
        while(pq.size()){
         auto p=pq.top();
