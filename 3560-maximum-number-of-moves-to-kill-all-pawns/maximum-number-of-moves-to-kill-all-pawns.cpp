@@ -23,7 +23,6 @@ public:
             if(x>=0 && x<50 && y>=0 && y<50 && !vis[ind][x][y]){
                 q.push({x,y});
                 vis[ind][x][y]=1;
-                //for(auto it)
             }
         }
         }
@@ -46,25 +45,6 @@ public:
      }
      return dp[mask][flag][ind]= ans;
    }
-//    int solveTab(int n, vector<vector<int>>& pos){
-//     vector<vector<vector<int>>>dp((1<<n),vector<vector<int>>(2,vector<int>(n+1,0)));
-//     for(int mask=(1<<n)-1;mask>=0;mask--){
-//         for(int ind=n;ind>=0;ind--){
-//             for(int flag=0;flag<2;++flag){
-//                 int ans=(flag==0?0:1e9);
-//                 for(int i=0;i<n;++i){
-//                     int x=pos[i][0],y=pos[i][1];
-//                     if(!(mask&(1<<i))){
-//                         if(flag==0)ans=max(ans,arr[ind][x][y]+dp[mask|(1<<i)][1][i]);
-//                         else ans=min(ans,arr[ind][x][y]+dp[mask|(1<<i)][0][i]);
-//                     }
-//                 }
-//                 dp[mask][flag][ind]=ans;
-//             }
-//         }
-//     }
-//     return dp[0][0][0];
-//    }
     int maxMoves(int kx, int ky, vector<vector<int>>& pos) {
         int n=pos.size();
         
@@ -74,6 +54,5 @@ public:
         }
         vector<vector<vector<int>>>dp((1<<n),vector<vector<int>>(2,vector<int>(n+1,-1)));
        return solve(0,0,n,n,pos,dp);
-       //return solveTab(n,pos);
     }
 };
