@@ -9,20 +9,20 @@ public:
     u=findPar(u,par);
     v=findPar(v,par);
     if(u==v)return;
-    par[v]=u;
-    // if(rank[u]>=rank[v]){
-    //     rank[u]+=rank[v];
-    //     par[v]=u;
-    // }
-    // else{
-    //     rank[v]+=rank[u];
-    //     par[u]=v;
-    // }
+    //par[v]=u;
+    if(rank[u]>=rank[v]){
+        rank[u]+=rank[v];
+        par[v]=u;
+    }
+    else{
+        rank[v]+=rank[u];
+        par[u]=v;
+    }
   }
     bool gcdSort(vector<int>& nums) {
         int n=nums.size();
-        vector<int>par(1e5+1);
-        vector<long long>rank(1e5,1);
+        vector<int>par(1e5+10);
+        vector<long long>rank(1e5+10,1);
         for(int i=1;i<=1e5;++i)par[i]=i;
         set<int>st;
 
