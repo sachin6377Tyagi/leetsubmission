@@ -4,8 +4,7 @@ public:
        int n=s.size();
        int N=1e9+7;
        vector<long long>dp(n);
-       dp[0]=1;
-       for(int i=1;i<n;++i){
+       for(int i=0;i<n;++i){
         int j=i-1;
         while(j>=0){
             dp[i]=(dp[i]+dp[j])%N;
