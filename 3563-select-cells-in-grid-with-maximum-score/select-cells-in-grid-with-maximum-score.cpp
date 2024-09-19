@@ -10,8 +10,10 @@ public:
     //if((1<<j)&mask)ans=max(ans,solve(i+1,mask,vec,dp));
     if(!((1<<j)&mask)){
         int num=vec[i].first;
+        int x=i;
         while(i<n && vec[i].first==num)i++;
         ans=max(ans,num+solve(i,mask|(1<<j),vec,dp));
+        i=x;
     }
     return dp[i][mask]= ans;
    }
