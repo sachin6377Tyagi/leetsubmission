@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestAwesome(string s) {
         int mask=0;
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         mp[0]=-1;
         int ans=0;
         for(int i=0;i<s.size();++i){
