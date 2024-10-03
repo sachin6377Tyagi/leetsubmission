@@ -20,11 +20,6 @@ public:
    }
     bool isPossibleToCutPath(vector<vector<int>>& grid) {
         int n=grid.size(),m=grid[0].size();
-        //if(n==1 && m==1)return !(grid[0][0]);
-        //if(grid[0][0]==0 || grid[n-1][m-1]==0)return true;
-        //if(grid[n-1][m-2]==0 && grid[n-2][m-1]==0)return true;
-        cout<<n<<" "<<m<<endl;
-        //if((n==1 && m==2)|| (n==2 && m==1))return false;
         vector<vector<bool>>vis(n,vector<bool>(m,0));
             bool f=solve(0,0,grid,vis);
             if(!f)return true;
