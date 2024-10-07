@@ -1,12 +1,5 @@
 class Solution {
 public:
-   void dfs1(int node,int col,unordered_map<int,vector<int>>&adj,vector<bool>&vis,vector<vector<int>>&vec){
-    vec[0][col]=node;
-    vis[node]=1;
-    for(auto nbr:adj[node]){
-        if(!vis[nbr])dfs1(nbr,col+1,adj,vis,vec);
-    }
-   }
     vector<vector<int>> constructGridLayout(int n, vector<vector<int>>& edges) {
        vector<int>deg(n,0);
        unordered_map<int,vector<int>>adj;
