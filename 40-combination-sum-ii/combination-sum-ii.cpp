@@ -7,7 +7,7 @@ public:
        }
 
        for(int j=i;j<arr.size();++j){
-           if(j>i && arr[j]==arr[j-1])continue;
+           if(j!=i && arr[j]==arr[j-1])continue;
 
            output.push_back(arr[j]);
            solve(j+1,arr,target-arr[j],output,ans);
