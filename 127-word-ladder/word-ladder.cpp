@@ -7,7 +7,7 @@ public:
         q.push(beginWord);
         unordered_set<string>vis;
         vis.insert(beginWord);
-        char arr[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        //char arr[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
         int level=1;
         while(!q.empty()){
             int n=q.size();
@@ -17,9 +17,9 @@ public:
                 if(s==endWord)return level;
                 for(int i=0;i<26;++i){
                     for(int j=0;j<s.size();++j){
-                        if(s[j]==arr[i])continue;
+                        if(s[j]==i+'a')continue;
                         string temp=s;
-                        temp[j]=arr[i];
+                        temp[j]=i+'a';
                         if(!vis.count(temp)&&st.find(temp)!=st.end()){
                             // cout<<temp<<endl;
                             q.push(temp);
