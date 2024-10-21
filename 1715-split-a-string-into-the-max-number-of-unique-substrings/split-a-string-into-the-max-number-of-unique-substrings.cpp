@@ -10,7 +10,7 @@ public:
         string x=temp;
         temp="";
         st.insert(x);
-        cout<<i<<" "<<x<<endl;
+        //cout<<i<<" "<<x<<endl;
         ans=max(ans,1+solve(i+1,s,temp+s[i],st));
         st.erase(x);
     }
