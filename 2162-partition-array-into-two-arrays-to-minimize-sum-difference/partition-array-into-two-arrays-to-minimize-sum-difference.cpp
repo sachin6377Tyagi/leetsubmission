@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<pair<int,int>>divideArray(int lo,int hi,int n,vector<int>&nums){
+    vector<pair<int,int>>divideArray(int lo,int n,vector<int>&nums){
         vector<pair<int,int>>ans;
         int len=(1<<n);
         for(int i=0;i<len;++i){
@@ -20,8 +20,8 @@ public:
         for(int i=0;i<nums.size();++i)sum+=nums[i];
         int n=nums.size();
         n=n/2;
-        vector<pair<int,int>>left=divideArray(0,n,n,nums);
-        vector<pair<int,int>>right=divideArray(n,2*n,n,nums);
+        vector<pair<int,int>>left=divideArray(0,n,nums);
+        vector<pair<int,int>>right=divideArray(n,n,nums);
         sort(right.begin(),right.end());
         unordered_map<int,vector<int>>mp;
         for(int i=0;i<right.size();++i){
