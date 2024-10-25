@@ -27,17 +27,11 @@ public:
         for(int i=0;i<right.size();++i){
             mp[right[i].second].push_back(right[i].first);
         }
-        // for(int i=0;i<=2;++i){
-        //     for(auto it:mp[i])cout<<it<<" ";
-        //     cout<<endl;
-        // }
         int ans=1e9;
         for(int i=0;i<left.size();++i){
             int num=left[i].first;
             int l1=left[i].second;
-            //cout<<num<<" "<<l1<<endl;
             int ind=lower_bound(mp[n-l1].begin(),mp[n-l1].end(),sum/2-num)-mp[n-l1].begin();
-            //cout<<ind<<endl;
             if(ind!=mp[n-l1].size()){
                 int sum1=num+mp[n-l1][ind];
                 int sum2=sum-sum1;
