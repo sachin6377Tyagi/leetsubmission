@@ -1,28 +1,24 @@
 class Solution {
 public:
-    long long dp[100][100][100];
-    long long f(int i, int j, int k, vector<int>& robot, vector<vector<int>>& factory)
-    {
-        if (i<0) return 0;
-        if (j<0) return 1LL<<40;
-        if (dp[i][j][k]!=-1) return dp[i][j][k];
-        int xR=robot[i], xF=factory[j][0];
-        long long otherFactory=f(i, j-1, 0, robot, factory);
-        long long factoryJ=(k<factory[j][1])?abs(xR-xF)+f(i-1, j, k+1, robot, factory):1LL<<40;
-        return dp[i][j][k]=min(otherFactory,  factoryJ);
-
-    }
-    void print(auto& c){
-        for(int x:c) cout<<x<<", ";
-        cout<<endl;
+    long long dp[105][105][105];
+    long long solve(int i,int j,int lim,vector<int>& robot, vector<vector<int>>& factory){
+        if(i==robot.size())return 0;
+        if(j==factory.size())return 1e15;
+        if(dp[i][j][lim]!=-1)return dp[i][j][lim];
+        long long ans=1e15;
+        if(j+1<factory.size())ans=min(ans,solve(i,j+1,factory[j+1][1],robot,factory));
+       if(lim>0) {
+            ans=min(ans,abs(robot[i]-factory[j][0])+solve(i+1,j,lim-1,robot,factory));
+            //ans=min(ans,solve(i,j+1,factory[j][1],robot,factory));
+        }
+        return dp[i][j][lim]= ans;
     }
     long long minimumTotalDistance(vector<int>& robot, vector<vector<int>>& factory) {
         sort(robot.begin(), robot.end());
         sort(factory.begin(), factory.end());
         
-        int n=robot.size(), m=factory.size();
         memset(dp, -1, sizeof(dp));
-        return f(n-1, m-1, 0, robot, factory);
+        return solve(0, 0, factory[0][1],robot, factory);
     }
 };
 
